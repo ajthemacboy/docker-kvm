@@ -171,11 +171,11 @@ echo "parameter: ${FLAGS_NETWORK}"
 
 echo "[Remote Access]"
 if [ "$VNC" == "tcp" ]; then
-  FLAGS_REMOTE_ACCESS="-vnc ${VNC_IP}:${VNC_ID}"
+  FLAGS_REMOTE_ACCESS="-spice port=${VNC_PORT}"
 elif [ "$VNC" == "reverse" ]; then
-  FLAGS_REMOTE_ACCESS="-vnc ${VNC_IP}:${VNC_PORT},reverse"
+  FLAGS_REMOTE_ACCESS="-spice port=${VNC_PORT}"
 elif [ "$VNC" == "sock" ]; then
-  FLAGS_REMOTE_ACCESS="-vnc unix:${VNC_SOCK}"
+  FLAGS_REMOTE_ACCESS="-spice port=${VNC_PORT}"
 else
   FLAGS_REMOTE_ACCESS="-nographic"
 fi
